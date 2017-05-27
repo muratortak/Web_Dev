@@ -1,0 +1,133 @@
+body{
+    background-color: #adabab;
+}
+.form{
+    width: 760px;
+    margin: auto;
+    margin-top: 35px;
+    border: 5px solid black;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+}
+
+h1{
+    background-color: #d90000;
+    margin-top:0;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+span {
+    font-size: 15px;
+}
+
+.star{
+    color:red;
+}
+
+h3 {
+    color: #983333
+}
+
+.label {
+    width: 500px; 
+    margin: auto;
+    border: 1px hidden;
+    margin-top: 25px;
+}
+
+.h2 {
+    height: 20px;
+    padding-left: 10px;
+    padding-bottom: 2px;
+    font-size: 20px;
+    background-color: #919191;
+    margin-bottom: 0;
+}
+
+label {
+    text-align: right;
+    width: 190px;
+    display: inline-block;
+}
+
+
+.basic, .education, .experience, .attachments{
+    background-color: #f4f4f4;
+    margin: auto;
+}
+
+input, select, textarea, radio {
+    width: 230px;
+    box-sizing:border-box;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.radiod{
+    border: 1px solid black;
+    width: 186px;
+    height: 100px;
+    margin: auto;
+    margin-left: 194px;
+    padding-right: 42px;
+    padding-top: 20px;
+    margin-top: -15px;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+.radiod label {
+    width: 180px;
+    float:right;
+    text-align: left;  
+    padding: 3px;
+}
+
+.radiod input {
+    width: 15px;
+    float:left;
+}
+
+.p{
+    width: 150px;
+    font-size: 20px;
+    margin:auto;
+    margin-top: 15px;
+    margin-left:210px;
+    padding-bottom: 3px;
+    position:relative;
+   background: linear-gradient(to bottom, #f4f4f4, #f4f4f4 40%, white 50%);
+}
+
+.duty{
+    vertical-align: top;   
+}
+
+.buttons {
+    width: 500px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+.buttons input {
+    width: 100px;
+    height: 35px;
+    margin-left: 100px;
+    margin-top: 45px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #b50404;
+}
+
+#error, #error2, #error3, #error4, #error5, #error6 {
+    width: 230px;
+    height: 5px;
+    font-size: 10px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: -25px;
+    margin-left: 200px;
+}

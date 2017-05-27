@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <title>Sign up</title>
+    <meta charset="UTF-8" />
+	<link rel="stylesheet" href="lab05.css"/>
+</head>
+<body>
+    <div class="form">
+        <script src="lab05.js"></script>
+        <h1>JobSearch<span>.com</span></h1>
+        <h2>Create Your Account</h2>
+        <h3>* Required information</h3>
+        <form id="signup" action= "https://httpbin.org/post" method="post" onsubmit="return validateForm();">
+            <div class="label">
+                
+            <section class="basic">
+                <h2  class="h2">Basic Information</h2>
+                <label for="email" title="Email Address">Email <span class="star">*</span></label>
+                <input type="email" id="email" required="required"><br>
+                <label for="password" title="Password">Password <span class="star">*</span></label>
+                <input type="password" id="password" required="required" onchange="validPassword()"><br>
+                <div id="error3"></div><br>
+                <label for="Rpassword" title="Password">Retype Password <span class="star">*</span></label>
+                <input type="password" id="Rpassword" required="required" onchange="validRpassword()">
+                <br>
+                <div id="error4"></div><br>
+                <label for="Fname" title="Your First Name" >First Name <span class="star">*</span></label>
+                <input type="text" id="Fname" required="required" onchange="validFirstName()">
+                <br>
+                <div id="error"></div><br>
+                <label for="Lname" title="Your Last Name" >Last Name <span class="star">*</span></label>
+                <input type="text" id="Lname" required="required" onchange="validLastName()">
+                <br>
+                <div id="error2"></div><br>
+                <label for="Pnumber" title="Your Phone Number">Phone Number <span class="star">*</span></label>
+                <input type="tel" id="Pnumber" placeholder="999-999-9999" required="required" onchange="validatePhone()"><br>
+                <div id="error5"></div><br>
+                <label for="address" title="Your Address">Address <span class="star">*</span></label>
+                <input type="text" id="address" required="required"><br>
+                <label for="city" title="Your City">City <span class="star">*</span></label>
+                <input type="text" id="city" required="required"><br>
+                <label for="province" title="Your Province">Province <span class="star">*</span></label>
+                <select name="province" id="province" >
+                    <optgroup label="Provinces">
+                        <option value="AL">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                    </optgroup>
+                    <optgroup label="Territories">
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="YT">Yukon</option>
+                    </optgroup>
+                </select><br>
+                <label for="country" title="country">Country <span class="star">*</span></label>
+                <input type="text" id="country" required="required"><br>  
+            </section>
+                </div>
+            
+            <div class="label">
+                
+                <section class="education">
+                    <h2  class="h2">Education</h2>
+                    <label for="school" title="Your School">School <span class="star">*</span></label>
+                    <input type="text" id="school" required="required">
+                    <label for="program" title="Your Program">Program<span class="star">*</span></label>
+                    <input type="text" id="program" required="required">
+                    <label title="Select Education Level">Education Level<span class="star">*</span></label>
+                        <select name="education" id="education">
+                            <option value="0" selected>-select-</option>
+                            <option value="1">Technical Diploma</option>
+                            <option value="2">College Diploma</option>
+                            <option value="3">Bachelor's Degree</option>
+                            <option value="4">Master's Degree</option>
+                            <option value="5">Others</option>
+                        </select>
+                    <p class="p">Education Status</p>
+                    <div class="radiod">
+                        <label><input type="radio" name="education_type" checked required="required">Graduated</label><br>
+                        <label><input type="radio" name="education_type" required="required">Currently Enrolled</label><br>
+                        <label><input type="radio" name="education_type" required="required">Did Not Graduated</label><br>
+                    </div>
+                    <div id="error6"></div><br>
+                        <label for="graddate" title="Your Graduation Date">Graduation Date &nbsp;</label>
+                        <input type="text" id="graddate" required="required">
+                </section>
+            </div>
+            
+            <div class="label">
+                
+                <section class="experience">
+                    <h2 class="h2">Work Experience</h2>
+                    <label for="employer" title="Current or Last Employer(Optional)">Employer: &nbsp;</label>
+                    <input type="text" id="employer">
+                    <label for="jobtitle" title="Job Title(Optional)">Job Title: &nbsp;</label>
+                    <input type="text" id="jobtitle"> 
+                    <label for="duty" title="Job Duties" class="duty">Job Duty: &nbsp;</label>
+                    <textarea id="duty"></textarea>
+                    <label title="Number Of Year Worked">Worked Year: &nbsp; </label>
+                    <input type="number" min="1" max="20">
+                </section>
+            </div>
+            <div class="label">
+                
+                <section class="attachments">
+                    <h2  class="h2">Attachments</h2>
+                    <label>Attachments: &nbsp;</label><input type="file" multiple>
+                </section>
+            </div>
+            <div class="buttons">
+           
+            <input type="reset" id="reset" onclick="clearError();">
+            
+            <input type="submit" id="submit" value="Apply">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
