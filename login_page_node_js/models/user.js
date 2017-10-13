@@ -19,8 +19,12 @@ var UserSchema = new Schema({
        required: true,
        minglength: 1
     },
+    crypto: {
+        type: String,
+        required: true,
+        trim: true
+    },
     //tokens will have their own _id object for their object
-
     tokens: [{
             access: {
                 type: String,
@@ -37,10 +41,9 @@ var UserSchema = new Schema({
 UserSchema.methods.generateAuthToken = function() {
     var user = this;
     var access = 'auth';
-    var token = jwt.sign({_id: user._id.toHexString(), access}, '1234').toString();
+    var token = jwt.sign({email: user.email, access}, '1234').toString();
     user.tokens.push({access, token});
     return user.save().then(() => {
-        // console.log(token);
         return token;
     });
 };
@@ -57,10 +60,22 @@ UserSchema.statics.findByToken = function(token) {
     }
     
     return User.findOne({
-        _id: decoded._id,
+        email: decoded.email,
         'tokens.token': token,
         'tokens.access': 'auth'
     });
+};
+
+UserSchema.methods.generateAuthTokenForLogin = function() {
+    var user = this;
+    var access = 'auth';
+    var token = jwt.sign({email: user.email, access}, '1234').toString();
+    // user.tokens.push({access, token});
+//     return user.save().then(() => {
+//    console.log(token);
+//         return token;
+//     });
+    return token;
 };
 
 

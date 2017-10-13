@@ -1,8 +1,20 @@
+
+/** 
+
+THE CODE IS MESSY. THE FIRST GOAL HERE IS TO LEARN AND
+SUCCESSFULLY IMPLEMENT THE RIGHT TOOLS TO ACCOMPLISH
+NEW USER REGISTRATION AND LOGIN SYSTEM.
+
+CODE REVIEW WILL BE DONE SOON.
+
+ **/
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const hbs = require('express-handlebars');
+const cryptoJS = require('crypto-js');
 const {mongoose} = require('./db/mongoose');
 
 const app = express();
@@ -44,12 +56,16 @@ app.post("/login_test", url,(req, res) => {
     user.name = req.body.name;
     user.password = req.body.password;
     user.email = req.body.email;
+    console.log('email is: ', user.email);
     var head = res.header.Date;
+    console.log('Crypto is: ', cryptoJS.HmacSHA256(user.password, "key").toString());
+    user.crypto = cryptoJS.HmacSHA256(user.password, "key").toString();
+    console.log('user crypto is: ', user.crypto);
     user.save().then(() => {
         return user.generateAuthToken();
     }).then((token) => {
         res.cookie('token', token,  { maxAge: 900000, httpOnly: true });
-        console.log('token is: ', token);
+        console.log('token in login_test is: ', token);
         res.send();
     }).catch((e) => {
         res.status(400).send(e);
@@ -68,15 +84,37 @@ app.post('/login_confirm', url, (req, res) => {
     console.log('email is: ', email);
     var pwd = req.body.password;
     console.log('password is: ', pwd);
-    User.findOne({email}).then((User) => {
-        console.log(User);
-        if(pwd === User.password){
-            return User.generateAuthToken();
+    User.findOne({email}).then((user) => {
+        if(!user){
+            return Promise.reject();
         }
-    }).then((token) => {
-        res.cookie('token', token, { maxAge: 900000, httpOnly: true });
-        console.log('token for login is: ', token);
-    })
+        console.log('user found', user);
+        //careful with pwd or this.pwd
+        console.log('the pwd is: ', pwd);
+        var hash = cryptoJS.HmacSHA256(pwd, "key").toString()
+        console.log('hash is ', hash);
+        console.log('user.hash is: ', user.crypto);
+        if(user.crypto === hash){
+            console.log('returned user');
+            return user;
+        }else {
+            console.log('no hash');
+        }
+    }).then((user) => {
+        console.log('inside the then(user) and user tokens are: ', user.tokens);
+        // user.tokens.pop();
+        // user.tokens.splice(0, 10);
+        // user.tokens[0]
+        var access = 'auth';
+        var token1 = user.generateAuthTokenForLogin();
+
+        console.log('token in first then: ', token1);
+        user.tokens[0].token = token1;
+        user.save();
+        console.log('user token is: ', user.tokens[0].token);
+        res.cookie('token', token1,  { maxAge: 900000, httpOnly: true });
+        res.send('successful');
+    })  
     .catch((e) => {
         res.status(401).send(e);
     });
@@ -131,6 +169,7 @@ app.get('/login_test/logout', (req, res) => {
         if(!user) {
             return Promise.reject();
         }
+        user.tokens[0].token = "";
         res.cookie('token', 0, { maxAge: 10, httpOnly: true });
         res.send('Logout successful');
     }).catch((e) => {
