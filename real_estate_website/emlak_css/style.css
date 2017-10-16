@@ -1,0 +1,102 @@
+body {
+ 
+}
+
+.content {
+    padding-right: 0;
+    padding-left: 0;
+        padding-top: 50px;
+    background: linear-gradient(white, #d9d8d8); /* Standard syntax */
+       background-color: #d9d8d8;
+}
+.first, .getSale_first {
+/*    border: 1px red solid;*/
+    background-image: url(../emlak_images/amanera-1.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    height: 500px;
+    margin-bottom: 0;
+}
+
+.getSale_first {
+    margin-bottom: 25px;
+}
+
+.navbartop{
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    position: absolute;
+}
+
+.second {
+    margin-bottom: 150px;
+}
+
+.secondthird {
+    background-image: url('../emlak_images/image1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.third {
+    margin-bottom: 150px;
+}
+
+.fourth{
+    
+}
+
+
+.fifth {
+    border-top: 2px solid red;
+    padding: 0;
+/*    background-color: black;*/
+}
+
+.foot {
+    background-color: #dd8c8c;
+    height: 50px;
+}
+
+.pics {
+    height: 340px;
+    width: 200px;
+    margin-bottom: 35px;
+}
+
+.imgClass {
+    height: 340px;
+    width: 300px;
+}
+
+.modalPic img{
+    height: 600px;
+    width: 400px;
+}
+
+.ads {
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
+
+/*
+.nav-link{
+    color:white;
+}
+*/
+/*
+.cl {
+    background-color:white;
+}
+*/
+
+/*
+
+@media (max-width: 768px) {
+  nav.navbar {
+    color: aqua;
+  }
+}
+*/
