@@ -1,10 +1,10 @@
 <head>
-      <title>Satilik</title>
+      <title>Kiralik</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script type="text/javascript" src="emlak_javascript/script.js"></script>
     <link href="../emlak_css/style.css" type="text/css" rel="stylesheet">
 </head>
-<body>
 <div class="jumbotron getSale_first">
             <nav class="navbar navbar-expand-lg navbar-light fixed-top navbartop">
 <!--              <a class="navbar-brand" href="#">Navbar</a>-->
@@ -21,7 +21,7 @@
                     <a class="nav-link cl" href="#" style="color: black;">Hakkimizda</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link cl" href="getSale" style="color: black;">Satilik</a>
+                    <a class="nav-link cl" href="/getSales" style="color: black;">Satilik</a>
                   </li>
                     <li class="nav-item">
                     <a class="nav-link cl" href="/getRental" style="color: black;">Kiralik</a>
@@ -36,7 +36,7 @@
 
 <div class="container">
     <div class="row">
-        {{#each sales}}
+        {{#each rental}}
         <div class="col-12 col-xl-12 ads">
             <div class="row">
                 <div class="col-12 col-xl-6 pics">
@@ -102,9 +102,9 @@
 
 
                     
-                 
+
                 
-                <div class="col-xl-6">
+                 <div class="col-xl-6">
                     
                         <table class="table col-xl-12 tableInner">
                             <thead>
@@ -143,27 +143,37 @@
                             </tbody>
                             </table>
                     
-                   <div class="col-xl-12 details">
+                    <div class="col-xl-12 details">
                         <p>{{details}}</p>
-                         
+
                     </div>
-                   
+                    
                 </div>
-                <div class="col-xl-12 map2">
-                </div>
-                 
-                <div class="col-xl-4 location">
-                    <input id="lat" class="lat" name="lat" value="{{location.lat}}">
-                    <input id="lng" class="lng" name="lng" value ="{{location.lng}}">
-                
-                </div>
-               
-                
         </div>
         </div>
         {{/each}}
 </div>
 </div>
+</div>
+
+{{!-- 
+
+<table class="table">
+  {{#each sales}}
+  <tr>
+    <td>type: {{ type }}</td>
+    <td>price: {{ price }}</td>
+    <td>rooms: {{ rooms }}</td>
+    <td>heat: {{ heatStyle }}</td>
+    <td>City: {{ city }}</td>
+    <td>neighbor: {{ neighbor }}</td>
+    <td>age: {{ age }}</td>
+    <td>floor: {{ floor }}</td>
+    <td>story: {{ TotalStory }}</td>
+
+  </tr>
+  {{/each}}
+</table> --}}
 
 <div class="container fifth">
                 <footer class="footer foot">
@@ -189,11 +199,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-<script type="text/javascript" src="emlak_javascript/script.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6FcN5eFuxc5LQUEuwLNzsX2q-NQX4sYc&libraries=places&callback=initMap2"> </script>
 
 
-</body>
 
 {{!-- <div id="{{{_id}}}1" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">

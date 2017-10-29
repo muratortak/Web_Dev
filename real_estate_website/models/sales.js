@@ -55,6 +55,25 @@ var SalesSchema = new Schema({
         required: true
     },
 
+    details: {
+        type: String,
+        required: true
+    },
+    
+    location: 
+                {
+                    lat: {
+                        type: String,
+                        required: true
+                    },
+
+                    lng: {
+                        type: String,
+                        required: true
+                    }
+                }
+    ,
+
     img: [
             { 
                 destination: {

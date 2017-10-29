@@ -2,50 +2,75 @@
       <title>Satilik</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <script type="text/javascript" src="emlak_javascript/script.js"></script>
+    
     <link href="../emlak_css/style.css" type="text/css" rel="stylesheet">
 </head>
-
+<div class="row">
+<div class="col-3"></div>
+<div class="form-group col-6">
 <form action="/postSale" method="POST" enctype="multipart/form-data">
-
+<div class="form-control">
 <label for="type">Type</label>
-<input id="type" type="text" name="type">
+
+<select class="form-control" name="type">
+  <option name="type" value="sale">Satilik</option>
+  <option name="type" value="rental">Kiralik</option>
+</select>
 
 <label for="price">price</label>
-<input id="price" type="text" name="price">
+<input class="form-control" id="price" type="text" name="price">
 
 <label for="rooms">rooms</label>
-<input id="rooms" type="text" name="rooms">
+<input class="form-control" id="rooms" type="text" name="rooms">
 
 <label for="square">Square</label>
-<input id="square" type="text" name="square">
+<input class="form-control" id="square" type="text" name="square">
 
 <label for="age">Age</label>
-<input id="age" type="text" name="age">
+<input class="form-control" id="age" type="text" name="age">
 
 <label for="story">Story</label>
-<input id="story" type="text" name="story">
+<input class="form-control" id="story" type="text" name="story">
 
 <label for="floor">Floor</label>
-<input id="floor" type="text" name="floor">
+<input class="form-control" id="floor" type="text" name="floor">
 
 <label for="heat">Heat</label>
-<input id="heat" type="text" name="heat">
+<input class="form-control" id="heat" type="text" name="heat">
 
 <label for="city">City</label>
-<input id="city" type="text" name="city">
+<input class="form-control" id="city" type="text" name="city">
 
 <label for="neighbor">neighbor</label>
-<input id="neighbor" type="text" name="neighbor">
+<input class="form-control" id="neighbor" type="text" name="neighbor">
 
+<label for="details">Details</label>
+<textarea class="form-control" id="details" name="details"></textarea>
+<div class="col-xl-12" class="map" id="map"></div>
+ <input type="text" name="lat" id="lat">
+<input type="text" name="lng" id="lng">
  <input type="file" name="myimage" ></input></br>
   <input type="file" name="myimage" ></input></br>
    <input type="file" name="myimage" ></input></br>
     <input type="file" name="myimage" ></input></br>
+    <input type="file" name="myimage" ></input></br>
+  <input type="file" name="myimage" ></input></br>
+   <input type="file" name="myimage" ></input></br>
+    <input type="file" name="myimage" ></input></br>
+       <input type="file" name="myimage" ></input></br>
+    <input type="file" name="myimage" ></input></br>
  <input type="submit" name="submit" value="submit"></input>
+  </div>
 </form>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<button onclick="getDiff()" name="loc" class="loc" value="loc">Location</button>
+
+
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-     
+    <script type="text/javascript" src="emlak_javascript/script.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6FcN5eFuxc5LQUEuwLNzsX2q-NQX4sYc&libraries=places&callback=initMap"> </script>

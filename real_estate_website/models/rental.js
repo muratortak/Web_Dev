@@ -43,7 +43,50 @@ var RentalSchema = new Schema({
     heatStyle: {
         type: String,
         required: true
-    }
+    },
+
+    details: {
+        type: String,
+        required: true
+    },
+
+    city: {
+        type: String,
+        required: true
+    },
+
+    neighbor: {
+        type: String,
+        required: true
+    },
+
+    location: [
+        {
+            lat: {
+                type: String,
+                required: true
+            },
+
+            lng: {
+                type: String,
+                required: true
+            }
+        }
+    ],
+
+    img: [
+        { 
+            destination: {
+                type: String,
+                required: true,
+                trim: true
+                },
+                filename: {
+                type: String,
+                required: true
+                }
+        }
+    ]
 
 });
 
